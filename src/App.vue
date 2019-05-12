@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <router-view />
+    <main id="main-wrapper">
+      <router-view />
+    </main>
   </div>
 </template>
 
@@ -23,5 +25,9 @@
     list-style: none;
     font-family: 'Roboto', cursive;
     outline: 0;
+  }
+  #main-wrapper {
+    max-width: 768px;
+    margin: 0 auto;
   }
 </style>
