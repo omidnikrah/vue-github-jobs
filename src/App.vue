@@ -25,6 +25,7 @@ export default {
   list-style: none;
   font-family: 'Roboto', cursive;
   outline: 0;
+  text-decoration: none;
 }
 #main-wrapper {
   max-width: 768px;

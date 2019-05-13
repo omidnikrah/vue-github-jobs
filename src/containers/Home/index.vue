@@ -1,9 +1,11 @@
 <template>
   <div>
     <Loading v-if="jobsLoading" />
-    <div v-bind:key="jobsListItem.id" v-for="jobsListItem in jobsList">
-      <JobItem v-bind:data="jobsListItem" />
-    </div>
+    <JobItem
+      v-for="jobsListItem in jobsList"
+      v-bind:key="jobsListItem.id"
+      v-bind:data="jobsListItem"
+    />
   </div>
 </template>
 

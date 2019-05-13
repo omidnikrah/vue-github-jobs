@@ -19,7 +19,5 @@ export default {
       .catch(error => {
         console.log(error);
       });
-    /* eslint-disable-next-line */
-    console.log('Get Jobs');
   },
 };
