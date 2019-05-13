@@ -6,9 +6,9 @@
 
 <style scoped>
 .loading-wrapper {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
 }
 .loading {
   width: 2.5em;

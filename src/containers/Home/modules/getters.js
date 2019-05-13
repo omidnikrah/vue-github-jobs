@@ -1,4 +1,4 @@
 export default {
-    jobsLoading: state => state.jobsLoading,
-    jobsList: state => state.jobsList,
+  jobsLoading: state => state.jobsLoading,
+  jobsList: state => state.jobsList,
 };
