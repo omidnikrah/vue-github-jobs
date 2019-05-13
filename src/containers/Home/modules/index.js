@@ -4,7 +4,8 @@ import getters from './getters';
 
 export default {
     state: {
-        jobsList: "abad"
+        jobsLoading: false,
+        jobsList: []
     },
     actions,
     mutations,

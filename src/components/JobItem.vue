@@ -1,15 +1,22 @@
 <template>
     <div class="job-item">
         <div class="job-item-info">
-            <h3>Software Developer</h3>
-            <span>Iran</span>
+            <h3>{{ data.title }}</h3>
+            <span>{{ data.company }}</span>
         </div>
         <div class="job-item-detail">
-            <span>Anywhere</span>
-            <span>about 14 hours ago</span>
+            <span>{{ data.location}}</span>
+            <span>{{ data.created_at }}</span>
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        name: 'JobItem',
+        props: ["data"],
+    }
+</script>
 
 <style scoped>
     .job-item {

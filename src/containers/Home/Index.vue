@@ -1,39 +1,28 @@
 <template>
     <div>
-        <button type="button" @click="handleClick">Click Me</button>
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
-        <JobItem />
+        <Loading v-if="jobsLoading" />
+        <div v-bind:key="jobsListItem.id" v-for="jobsListItem in jobsList">
+            <JobItem v-bind:data="jobsListItem" />
+        </div>
     </div>
 </template>
 
 <script>
     import JobItem from '../../components/JobItem';
+    import Loading from '../../components/Loading';
     import { mapGetters } from 'vuex';
     export default {
         name: 'Home',
         components: {
-            JobItem
+            JobItem,
+            Loading,
         },
-        methods: {
-            handleClick() {
-              this.$store.dispatch("getJobs");
-            },
+        created() {
+            this.$store.dispatch("getJobs");
         },
         computed: {
             ...mapGetters({
+                jobsLoading: 'jobsLoading',
                 jobsList: 'jobsList',
             })
         }
