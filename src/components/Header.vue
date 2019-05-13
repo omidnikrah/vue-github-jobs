@@ -1,5 +1,5 @@
 <template>
-  <header id="header">
+  <header id="header" :class="{scrolled: minimizeHeader}">
     <div class="header-wrapper">
       <h1 id="title">Github Jobs</h1>
       <form id="search-form">
@@ -19,7 +19,17 @@
       return {
         jobTitle: '',
         location: '',
+        minimizeHeader: false,
       };
+    },
+    mounted() {
+      window.addEventListener('scroll', () => {
+        if (Math.round(window.scrollY) > 100) {
+          this.minimizeHeader = true;
+        } else {
+          this.minimizeHeader = false;
+        }
+      });
     },
     watch: {
       jobTitle: debounce(function () {
@@ -39,22 +49,9 @@
           description: this.jobTitle,
           location: this.location,
         });
-      }, 250)
+      }, 250),
     },
   }
-
-  window.onscroll = function() {
-    var sc = window.scrollY,
-        header = document.getElementById("header"),
-        body = document.getElementById("main-wrapper");
-    
-    if (sc > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-    
-  };
 </script>
 
 <style scoped>
