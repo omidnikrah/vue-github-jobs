@@ -1,11 +1,13 @@
 <template>
   <div>
     <Loading v-if="jobsLoading" />
-    <JobItem
-      v-for="jobsListItem in jobsList"
-      v-bind:key="jobsListItem.id"
-      v-bind:data="jobsListItem"
-    />
+    <div id="job-items" v-if="!jobsLoading">
+      <JobItem
+        v-for="jobsListItem in jobsList"
+        v-bind:key="jobsListItem.id"
+        v-bind:data="jobsListItem"
+      />
+    </div>
   </div>
 </template>
 
@@ -19,8 +21,10 @@ export default {
     JobItem,
     Loading,
   },
-  created() {
-    this.$store.dispatch('getJobs');
+  mounted() {
+    if (this.jobsList.length === 0) {
+      this.$store.dispatch('getJobs');
+    }
   },
   computed: {
     ...mapGetters({

@@ -20,12 +20,18 @@
     },
     watch: {
       jobTitle: debounce(function () {
+        if (this.$route !== 'Home') {
+          this.$router.push('/');
+        }
         this.$store.dispatch('getJobs', {
           description: this.jobTitle,
           location: this.location,
         });
       }, 250),
       location: debounce(function () {
+        if (this.$route !== 'Home') {
+          this.$router.push('/');
+        }
         this.$store.dispatch('getJobs', {
           description: this.jobTitle,
           location: this.location,
