@@ -2,11 +2,38 @@
   <header id="header">
     <h1 id="title">Github Jobs</h1>
     <form id="search-form">
-      <input name="title" type="text" placeholder="Job title..." />
-      <input name="title" type="text" placeholder="Location..." />
+      <input name="title" type="text" v-model="jobTitle" placeholder="Job title..." />
+      <input name="title" type="text" v-model="location" placeholder="Location..." />
     </form>
   </header>
 </template>
+
+<script>
+  import debounce from '../utils/debounce';
+  export default {
+    name: 'Header',
+    data() {
+      return {
+        jobTitle: '',
+        location: '',
+      };
+    },
+    watch: {
+      jobTitle: debounce(function () {
+        this.$store.dispatch('getJobs', {
+          description: this.jobTitle,
+          location: this.location,
+        });
+      }, 250),
+      location: debounce(function () {
+        this.$store.dispatch('getJobs', {
+          description: this.jobTitle,
+          location: this.location,
+        });
+      }, 250)
+    },
+  }
+</script>
 
 <style scoped>
 #header {
