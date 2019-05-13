@@ -6,7 +6,7 @@
     </div>
     <div class="job-item-detail">
       <span>{{ data.location }}</span>
-      <span>{{ data.created_at }}</span>
+      <span>{{ moment(data.created_at).fromNow() }}</span>
     </div>
   </div>
 </template>
@@ -29,6 +29,11 @@ export default {
 }
 .job-item-info h3 {
   font-weight: bold;
+}
+.job-item-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .job-item-detail span {
   display: flex;
