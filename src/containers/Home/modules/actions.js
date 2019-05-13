@@ -17,6 +17,7 @@ export default {
         store.commit(GET_JOBS_SUCCESS, data);
       })
       .catch(error => {
+        /* eslint-disable-next-line */
         console.log(error);
       });
   },
