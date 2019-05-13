@@ -5,7 +5,12 @@ export default ({ url, method = 'GET', data = {} }) => {
     'Content-Type': 'application/json; charset=utf-8',
   };
 
-  let API_URL = `/${url}`;
+  let API_URL = '';
+  if (process.env.NODE_ENV === 'development') {
+    API_URL = `/${url}`;
+  } else {
+    API_URL = `https://jobs.github.com/${url}`;
+  }
 
   const handleErrors = error => {
     switch (error.response.status) {
