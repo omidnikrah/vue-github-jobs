@@ -1,15 +1,18 @@
 <template>
   <header id="header">
-    <h1 id="title">Github Jobs</h1>
-    <form id="search-form">
-      <input name="title" type="text" v-model="jobTitle" placeholder="Job title..." />
-      <input name="title" type="text" v-model="location" placeholder="Location..." />
-    </form>
+    <div class="header-wrapper">
+      <h1 id="title">Github Jobs</h1>
+      <form id="search-form">
+        <input name="title" type="text" v-model="jobTitle" placeholder="Job title..." />
+        <input name="title" type="text" v-model="location" placeholder="Location..." />
+      </form>
+    </div>
   </header>
 </template>
 
 <script>
   import debounce from '../utils/debounce';
+
   export default {
     name: 'Header',
     data() {
@@ -39,13 +42,46 @@
       }, 250)
     },
   }
+
+  window.onscroll = function() {
+    var sc = window.scrollY,
+        header = document.getElementById("header"),
+        body = document.getElementById("main-wrapper");
+    
+    if (sc > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+    
+  };
 </script>
 
 <style scoped>
 #header {
-  background-color: #f9f9f9;
+  background-color: #394452;
   text-align: center;
+  transition: all .5s ease;
   padding: 50px;
+}
+#header.scrolled {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 10px 20px;
+}
+.header-wrapper {
+  position: relative;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+#header.scrolled .header-wrapper {
+  max-width: 768px;
+  margin: 0 auto;
+  height: 55px;
 }
 #title {
   text-align: center;
@@ -53,6 +89,20 @@
   margin: 0;
   color: #333;
   font-family: 'Baloo Bhai', cursive;
+  color: white;
+  transition: all 1s ease;
+}
+#header.scrolled #title {
+  position: absolute;
+  left: 0;
+  font-size: 35px;
+}
+#search-form {
+  transition: float 5s ease;
+}
+#header.scrolled #search-form{
+  position: absolute;
+  right: 0;
 }
 #search-form input {
   padding: 15px;
