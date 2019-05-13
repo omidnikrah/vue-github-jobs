@@ -22,10 +22,12 @@ export default {
 * {
   padding: 0;
   margin: 0;
-  list-style: none;
   font-family: 'Roboto', cursive;
   outline: 0;
   text-decoration: none;
+}
+a {
+  color: #444;
 }
 #main-wrapper {
   max-width: 768px;
