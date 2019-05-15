@@ -20,26 +20,28 @@ export default {
 };
 </script>
 
-<style scoped>
-.job-item a {
-  padding: 20px;
-  background-color: #f9f9f9;
-  margin: 10px 0;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  color: #444;
-}
-.job-item-info h3 {
-  font-weight: bold;
-}
-.job-item-detail {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.job-item-detail span {
-  display: flex;
-  opacity: 0.5;
+<style lang="scss" scoped>
+.job-item {
+  a {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    color: #444;
+    .job-item-info h3 {
+      font-weight: bold;
+    }
+    .job-item-detail {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      span {
+        display: flex;
+        opacity: 0.5;
+      }
+    }
+  }
 }
 </style>

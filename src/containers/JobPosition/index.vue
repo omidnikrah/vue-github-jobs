@@ -72,7 +72,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #position-container {
   margin: 30px auto;
   padding: 30px;
@@ -80,38 +80,38 @@ export default {
   -moz-border-radius: 5px;
   border-radius: 5px;
   background-color: #f9f9f9;
-}
-.job-title {
-  font-size: 25px;
-  font-weight: bold;
-}
-.company_logo {
-  width: 200px;
-  margin: 70px auto 100px;
-  display: block;
-}
-.job-detail {
-  margin: 20px 0;
-}
-.key-value {
-  margin-right: 15px;
-}
-.key-value span:first-child {
-  opacity: 0.6;
-}
-.description {
-  line-height: 1.7;
-  color: #444;
-}
-.description ul {
-  list-style: circle;
-}
-.apply-button {
-  background-color: #ff6464;
-  padding: 10px 15px;
-  display: inline-block;
-  margin-top: 30px;
-  border-radius: 3px;
-  color: #fff;
+  .job-title {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .company_logo {
+    width: 200px;
+    margin: 70px auto 100px;
+    display: block;
+  }
+  .job-detail {
+    margin: 20px 0;
+  }
+  .key-value {
+    margin-right: 15px;
+  }
+  .key-value span:first-child {
+    opacity: 0.6;
+  }
+  .description {
+    line-height: 1.7;
+    color: #444;
+  }
+  .description ul {
+    list-style: circle;
+  }
+  .apply-button {
+    background-color: #ff6464;
+    padding: 10px 15px;
+    display: inline-block;
+    margin-top: 30px;
+    border-radius: 3px;
+    color: #fff;
+  }
 }
 </style>

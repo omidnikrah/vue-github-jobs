@@ -1,13 +1,15 @@
 <template>
   <div>
     <Loading v-if="jobsLoading" />
-    <div id="job-items" v-if="!jobsLoading">
-      <JobItem
-        v-for="jobsListItem in jobsList"
-        v-bind:key="jobsListItem.id"
-        v-bind:data="jobsListItem"
-      />
-    </div>
+    <transition appear name="list">
+      <div id="job-items" v-if="!jobsLoading">
+          <JobItem
+            v-for="jobsListItem in jobsList"
+            :key="jobsListItem.id"
+            :data="jobsListItem"
+          />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -34,3 +36,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .list-enter-active, .list-leave-active {
+    transition: all 0.5s;
+  }
+  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+</style>
